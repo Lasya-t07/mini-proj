@@ -34,9 +34,8 @@ def predict():
     # Make a prediction
     pred = model.predict([final])
     pred = pred[0]
-    pred = np.round(pred, 2)
     print('Prediction:',pred)
-    return render_template('home.html', prediction=pred*100)
+    return render_template('home.html', prediction=np.round(pred*100, 2))
 
 if __name__ == '__main__':
     app.run(port=5500, debug=True)
